@@ -6,10 +6,10 @@ from core import start_game
 
 ENCODE = "UTF-8"
 MAX_BYTES = 65535
-PORT = 5000            # Porta que o Servidor esta
-HOST = ''     	       # Endereco IP do Servidor
+PORT = 5000
+HOST = ''
 
-# Abrindo um socket UDP na porta 5000
+
 orig = (HOST, PORT)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind(orig)
