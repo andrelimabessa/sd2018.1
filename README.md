@@ -1,0 +1,1 @@
+Foi mal professor mas o sistema de imports do python tem uma documentação péssima e ninguém no stackoverflow/github sabe explicar como isso funciona então vai ficar tudo duplicado. perdi 1h tentando modularizar e quero terminar logo isso. são 2 da manhã de sexta e eu n to feliz
