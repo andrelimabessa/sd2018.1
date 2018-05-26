@@ -1,5 +1,7 @@
 from string import Template
 import game
+from helpers import print_matrix
+from constants import Status
 
 menu = {}
 menu['1'] = "New game"
@@ -10,6 +12,7 @@ menu['3'] = "Quit"
 def print_options():
     options = menu.keys()
     options = sorted(options)
+
     for entry in options:
         template = Template("$entry - $value")
         string = template.substitute(entry=entry, value=menu[entry])
@@ -17,20 +20,21 @@ def print_options():
 
 
 def run():
-    board_iterator = None
-    board_history = []
+    game_instance = None
+    game_running = False
+
     while True:
         print_options()
         selection = input("Please Select:")
         if selection == '1':
-            board_iterator = iter(game.start())
-            board_history = next(board_iterator)
-            print(board_history[-1:])
+            game_instance = game.start()
+            result = game_instance.play()
+            game_running = result['status'] == Status.PAUSED
         elif selection == '2':
-            board_history = next(board_iterator)
-            print(board_history[-1:])
+            if game_running:
+                result = game_instance.play()
+                game_running = result['status'] == Status.PAUSED
         elif selection == '3':
-            print(board_history)
             break
         else:
             print("Unknown Option Selected!")

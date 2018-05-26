@@ -7,3 +7,4 @@ elm-stuff/
 .history/
 
 __pycache__/
+*.pyc

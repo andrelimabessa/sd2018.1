@@ -2,7 +2,7 @@ import random
 
 
 def create_board(x_size, y_size):
-    x_columns = lambda: [False] * x_size
+    def x_columns(): return [False] * x_size
     return [x_columns() for i in range(y_size)]
 
 
