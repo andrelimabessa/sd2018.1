@@ -1,5 +1,4 @@
-u"""Esse módulo possui a implementação de um servidor UDP"""
-
+u"""Esse módulo possui a implementação de um servidor UDP."""
 from socket import socket, AF_INET, SOCK_DGRAM
 
 ENCODE = "UTF-8"
@@ -8,14 +7,14 @@ PORT = 5000
 HOST = ''
 
 def server():
-    u"""Esse função implementa um servidor que faz uso de um socket UDP."""
+    u"""Essa função implementa um servidor que faz uso de um socket UDP"""
 
     orig = (HOST, PORT)
     sock = socket(AF_INET, SOCK_DGRAM)
     sock.bind(orig)
 
     while True:
-        print("Ativando o servidor...")
+        print("Ativando servidor ... ")
         data, address = sock.recvfrom(MAX_BYTES)
         text = data.decode(ENCODE)
         print("Recebemos a seguinte pergunta: " + text)
@@ -26,3 +25,4 @@ def server():
 
 if __name__ == "__main__":
     server()
+            
