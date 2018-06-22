@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<br>
+	<h2><p>Defina o tamanho da Matriz</p></h2>
+	<h2><p>Mínimo: 2x2</p></h2>
+	<form  action="jogada" method="post">
+		{% csrf_token %}
+		<p>
+		<label>Tamanho da Matriz</label>
+		</p>
+		{{ entrada.linha }}
+		<label>X</label>
+		{{ entrada.coluna }}
+		<br>
+		<br>
+		<p>
+		<input type="submit" name="iniciar" value="Jogar">
+		</p>
+		<br>
+	</form>
+{% endblock %}
