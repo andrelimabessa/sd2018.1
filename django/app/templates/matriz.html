@@ -7,7 +7,7 @@
    			{{ mensagem }}
    		</tr>
 	</div>
-	<form action="principal" method="POST">
+	<form action="main" method="POST">
 		{% csrf_token %}
 		{{ entrada.as_p }}
 		<input type="submit" name="jogada" value="OK">
