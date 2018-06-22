@@ -24,7 +24,6 @@ def jogada(request):
             objeto = CampoMinado()
             objeto.criar_novo_jogo(linha, coluna)
             matriz = objeto.retornar_matriz()
-            # objeto.salvarJogo()
     else:
         entrada = JogadaForm()
 
@@ -41,13 +40,12 @@ def main(request):
             coluna = entrada.cleaned_data['coluna']
             mensagem = objeto.jogada(linha - 1, coluna - 1)
             jogadas_restantes = objeto.jogadas_restantes
-            # objeto.salvarJogo()
             if mensagem == VITORIA:
                 print("VITORIA ?")
                 if jogadas_restantes == 0:
                     print("VITORIA!")
                     matriz = objeto.retornar_matriz
-                    return render(request, 'fimJogo.html', {'matriz': matriz, 'mensagem': mensagem})
+                    return render(request, 'fim.html', {'matriz': matriz, 'mensagem': mensagem})
             elif mensagem == COORDENADAS_INVALIDAS:
                 print("COORDENADAS_INVALIDAS")
                 matriz = objeto.retornar_matriz
@@ -56,7 +54,7 @@ def main(request):
             elif mensagem == FIM_JOGO:
                 print("FIM_JOGO")
                 matriz = objeto.retornar_matriz
-                return render(request, 'fimJogo.html', {'matriz': matriz, 'mensagem': mensagem})
+                return render(request, 'fim.html', {'matriz': matriz, 'mensagem': mensagem})
             else:
                 print("JOGADA")
                 matriz = objeto.retornar_matriz
