@@ -108,6 +108,7 @@ if __name__ == "__main__":
     try:
         thread = ThreadedServer(CampoMinadoServidor, port=18861)
         thread.start()
+        
     except:
         for val in sys.exc_info():
             print(val)
