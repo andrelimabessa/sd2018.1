@@ -1,8 +1,35 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-orange.min.css" /> 
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
-    <p>Funcionando</p>
+<h1>Nova Jogada</h1>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button  class="mdl-button mdl-js-button mdl-button--raised" type="submit" class="save btn btn-default">Jogar</button>
+</form>
+
+<div class="box-body">
+    <table>
+        <thead>
+            <tr>
+                <th>Linha </th>
+                <th>Coluna </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jogada in jogadas %}
+            <tr>
+                <td>{{ jogada.linha }}</td>
+                <td></td>
+                <td>{{ jogada.coluna }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
 
