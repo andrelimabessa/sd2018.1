@@ -5,26 +5,73 @@
 <h1>Nova Jogada</h1>
 <form method="POST" class="post-form">{% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Jogar</button>
+    <button type="submit" class="save btn btn-default">salvar</button>
 </form>
 
 <div class="box-body">
-    <table>
+    <table id="campo-minado" border="1" width="250" height="150" style="text-align-last:center" >
         <thead>
             <tr>
-                <th>Linha </th>
-                <th>Coluna </th>
+                <td> </td>
+                <th>1 </th>
+                <th>2 </th>
+                <th>3</th>
+                <th>4 </th>
+                <th>5 </th>
             </tr>
         </thead>
         <tbody>
-            {% for jogada in jogadas %}
             <tr>
-                <td>{{ jogada.linha }}</td>
-                <td>{{ jogada.coluna }}</td>
+                <td style="font-weight:bold">1</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
             </tr>
-            {% endfor %}
+            <tr>
+                <td style="font-weight:bold">2</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">3</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">4</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold">5</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
         </tbody>
     </table>
 </div>
+
+{% for jogada in jogadas %}
+<script type="text/javascript">
+    var linha = {{jogada.linha}}+1;
+    var coluna = {{jogada.coluna}}-1;
+    var vizinhos = {{jogada.vizinhos}}
+    document.querySelectorAll("table td:nth-child("+linha+")")[coluna].innerText = vizinhos;
+</script>
+{% endfor %}
 
 {% endblock %}
