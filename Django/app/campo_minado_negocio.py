@@ -2,7 +2,7 @@ from random import randint
 
 COORDENADAS_INVALIDAS = "Coodenadas Invalidas"
 JOGADA_SEGURA = "Jogada Segura"
-GAME_OVER = "Game Over"
+GAME_OVER = "Fim de jogo"
 VITORIA = "Parabéns você venceu"
 
 
