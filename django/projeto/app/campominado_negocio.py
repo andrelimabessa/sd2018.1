@@ -8,6 +8,7 @@ class CampoMinadoNegocio:
     def __init__(self):
         self.__bombas = None
         self.criar_novo_jogo()
+        self.__contador = 0
 
     def criar_novo_jogo(self):
         self.__bombas = []
@@ -25,6 +26,7 @@ class CampoMinadoNegocio:
         var = False
         if tupla in self.__bombas:
             var = True
+        self.__incrementar_contador()
         return var
         
     def bombas_vizinhas(self, tupla):
@@ -41,7 +43,14 @@ class CampoMinadoNegocio:
         lista.append((linha+1,coluna+1))
         qtd_bombas = [i for i in self.__bombas if i in lista]
         return int(len(qtd_bombas))
-        
+    
+    def __incrementar_contador(self):
+        self.__contador = self.__contador + 1
+    
+    def get_contador(self):
+        return self.__contador
+
+
     def __gerar_bombas(self):
         while(len(self.__bombas) < 5):
             linha = randint(1,5)

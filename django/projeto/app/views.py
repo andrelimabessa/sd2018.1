@@ -19,6 +19,10 @@ def post_list(request):
                 messages.success(request, 'Acertou uma bomba!', extra_tags='alert')
                 Jogada.objects.all().delete()
                 negocio.criar_novo_jogo()
+            elif negocio.get_contador() == 20:
+                messages.success(request, 'Você venceu!', extra_tags='alert')
+                Jogada.objects.all().delete()
+                negocio.criar_novo_jogo()
             else:
                 jogada.save()
     else:
