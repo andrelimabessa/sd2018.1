@@ -12,6 +12,7 @@ class Negocio:
         self.minas = self.colocaMinas(self.qtdLinhas)
         self.mapaQuantidades = []
         self.maximoJogadas = self.qtdLinhas*self.qtdLinhas-len(self.minas)
+        self.jogadas = 0
 
     def colocaMinas(self, qtdLinhas):
         minas = []
@@ -26,6 +27,7 @@ class Negocio:
                 # mina = Mina(linha=linha,coluna=coluna)
                 # mina.save()
                 # print(Mina.objects.all())
+        print(minas)
         return minas
 
     def verificaBomba(self, linha, coluna):

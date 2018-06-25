@@ -23,14 +23,19 @@ def post_list(request):
                     negocio.iniciarJogo()
                     return render(request, 'inicio.html', { 'perdeu': True })
                 else:
+                    negocio.jogadas += 1
                     jogada.vizinhos = negocio.verificaVizinhos(jogada.linha,jogada.coluna)
                     jogada.save()   
+                        
     else:
         form = JogadaForm()
-
+    venceu = False
+    if negocio.jogadas>=negocio.maximoJogadas:
+        venceu = True
+        Jogada.objects.all().delete()
+        negocio.iniciarJogo()
     jogadas = Jogada.objects.all()
-
-    return render(request, 'post_list.html', {'form': form, 'jogadas':jogadas})
+    return render(request, 'post_list.html', {'form': form, 'jogadas':jogadas, 'venceu':venceu})
 
 def iniciar(request):
     if request.method == "GET":
