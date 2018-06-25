@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Nova Jogada</h1>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Jogar</button>
+</form>
+<div class="row">
+    <div class="col-md-6">
+        <div class="box-body">
+            <table class="table table-striped table-jogadas">
+                <thead>
+                    <tr>
+                        <th class="jogadas-coluna">Linha </th>
+                        <th class="jogadas-coluna">Coluna </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for jogada in jogadas %}
+                    <tr>
+                        <td>{{ jogada.linha }}</td>
+                        <td>{{ jogada.coluna }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
