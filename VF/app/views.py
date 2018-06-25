@@ -1,102 +1,11 @@
-# from django.shortcuts import render
-# from django.utils import timezone
-# from .models import Jogada
-# from .forms import JogadaForm
-# from .campo_minado_negocio import CampoMinado
-
-# COORDENADAS_INVALIDAS = "Coodenadas Invalidas"
-# JOGADA_SEGURA = "Jogada Segura"
-# GAME_OVER = "Game Over"
-# VITORIA = "Parabéns você venceu"
-
-# """ 
-#     1. Menu para iniciar o jogo
-#     2. Menu declara jogada
-#     3. Regra pra vitória
-    
-#     4. Salvar jogadas
-#     5. Continuar jogo 
-#  """
-# objeto = CampoMinado()
-
-# def post_list(request):
-#     if request.method == "POST":
-#         form = JogadaForm(request.POST)
-#         if form.is_valid():
-#             jogada = form.save(commit=False)
-#             jogada.created_date = timezone.now()
-#             jogada.save()
-#     else:
-#         form = JogadaForm()
-
-#     jogadas = Jogada.objects.all()
-
-#     return render(request, 'app/post_list.html', {'form': form, 'jogadas':jogadas})
-
-
-# def menu_inicial(objeto):
-#     print("---------------------------------------")
-#     print("------------ Campo Minado -------------")
-#     print("---------------------------------------")
-#     print("\n")
-#     print(" Selecione uma opção")
-#     print("1. Criar novo jogo")
-#     if objeto.jogo_incompleto() == True:
-#         print("2. Continuar jogo anterior")
-#     print("9. Sair do Jogo")
-
-# def iniciar_novo_jogo(contexto):
-
-#     objeto = contexto.get(INSTANCIA)
-#     objeto.criar_novo_jogo(4,4)
-#     objeto.imprimir_tabuleiro()
-
-#     return efetuar_nova_jogada(contexto)
-
-# def continuar_jogo(contexto):
-#     pass
-
-# def efetuar_nova_jogada(contexto):
-
-#     objeto = contexto.get(INSTANCIA)
-
-#     while objeto.jogadas_restantes > 0:
-#         linha = int(input("Defina uma linha: "))
-#         coluna = int(input("Defina uma coluna: "))
-#         if objeto.jogada(linha,coluna) == GAME_OVER:
-#             return GAME_OVER
-#         objeto.imprimir_tabuleiro()
-    
-#     return VITORIA
-
-# def sair(contexto):
-#     sys.exit(0)
-
-# if __name__ == "__main__":
-
-#     switcher = {
-#         1: iniciar_novo_jogo,
-#         2: continuar_jogo,
-#         9: sair,
-#     }
-
-#     objeto = CampoMinado()
-#     contexto = {INSTANCIA: objeto}
-    
-#     while True:
-#         menu_inicial(objeto)
-#         opcao = int(input("Opção escolhida: "))
-
-#         func = switcher.get(opcao)
-
 from django.shortcuts import render
 from .campo_minado_negocio import CampoMinado
 from .forms import JogadaForm
 from .models import Jogada
 
-VITORIA = "Parabéns!"
+VITORIA = "Parabéns você venceu!"
 COORDENADAS_INVALIDAS = "Coodenadas Invalidas"
-FIM_JOGO = "Game Over"
+GAME_OVER = "Game Over"
 
 objeto = CampoMinado()
 
@@ -142,8 +51,8 @@ def main(request):
                 matriz = objeto.retornar_matriz
                 return render(request, 'app/matriz.html',
                               {'entrada': entrada, 'matriz': matriz, 'mensagem': mensagem})
-            elif mensagem == FIM_JOGO:
-                print("FIM_JOGO")
+            elif mensagem == GAME_OVER:
+                print("GAME_OVER")
                 matriz = objeto.retornar_matriz
                 return render(request, 'app/fim.html', {'matriz': matriz, 'mensagem': mensagem})
             else:
