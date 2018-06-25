@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<br>
+	<center><h2 style ="margin-left:50%;"><p>Defina o tamanho de linhas e colunas</p></h2></center>
+<center>
+	<form  action="jogada" method="post" style ="margin-left:50%;">
+		{% csrf_token %}
+		<p>
+		<label>Tamanho da Matriz</label>
+		</p>
+		{{ entrada.linha }}
+		<label>X</label>
+		{{ entrada.coluna }}
+		<br>
+		<br>
+		<p>
+		<input type="submit" name="iniciar" value="Jogar">
+		</p>
+		<br>
+	</form>
+	</center>
+{% endblock %}
