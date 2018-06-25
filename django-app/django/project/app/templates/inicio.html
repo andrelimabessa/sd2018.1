@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if perdeu %}
+<h1>Game Over</h1><br><br>
+{% endif %}
+<a href="/jogar"><button class="btn btn-primary">Jogar</button></a>
+{% endblock %}

@@ -10,7 +10,5 @@ RUN virtualenv myenv
 RUN /bin/bash -c "source myenv/bin/activate"
 RUN pip install django
 RUN django-admin startproject project
-RUN /bin/bash -c "ls -la"
 WORKDIR /web/project
-RUN /bin/bash -c "ls -la"
 RUN python manage.py startapp app

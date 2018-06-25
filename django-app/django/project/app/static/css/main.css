@@ -5,3 +5,12 @@
 .table-jogadas {
     width: 25px;
 }
+
+.titulo {
+    padding-left: 30px;
+    margin-top: 0;
+}
+
+.page-header {
+    margin-top: 20px;
+}

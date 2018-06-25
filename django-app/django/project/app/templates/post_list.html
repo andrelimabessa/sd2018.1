@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <table class="table">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
@@ -42,48 +42,56 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><b>1</b></td>
+                    <td id="i11"></td>
+                    <td id="i12"></td>
+                    <td id="i13"></td>
+                    <td id="i14"></td>
+                    <td id="i15"></td>
                 </tr>
                 <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><b>2</b></td>
+                    <td id="i21"></td>
+                    <td id="i22"></td>
+                    <td id="i23"></td>
+                    <td id="i24"></td>
+                    <td id="i25"></td>
                 </tr>
                 <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><b>3</b></td>
+                    <td id="i31"></td>
+                    <td id="i32"></td>
+                    <td id="i33"></td>
+                    <td id="i34"></td>
+                    <td id="i35"></td>
                 </tr>
                 <tr>
-                    <td>4</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><b>4</b></td>
+                    <td id="i41"></td>
+                    <td id="i42"></td>
+                    <td id="i43"></td>
+                    <td id="i44"></td>
+                    <td id="i45"></td>
                 </tr>
                 <tr>
-                    <td>5</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><b>5</b></td>
+                    <td id="i51"></td>
+                    <td id="i52"></td>
+                    <td id="i53"></td>
+                    <td id="i54"></td>
+                    <td id="i55"></td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+{% for jogada in jogadas %}
+<script type="text/javascript">
+    var linha = {{jogada.linha}};
+    var coluna = {{jogada.coluna}};
+    var vizinhos = {{ jogada.vizinhos }}
+    document.querySelectorAll("#i"+linha+""+coluna)[0].innerText = vizinhos;
+</script>
+{% endfor %}
 
 {% endblock %}

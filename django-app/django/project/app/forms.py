@@ -5,4 +5,4 @@ class JogadaForm(forms.ModelForm):
 
     class Meta:
         model = Jogada
-        fields = ('linha','coluna',)
+        fields = ('linha','coluna')

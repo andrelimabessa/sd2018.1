@@ -3,5 +3,6 @@ from . import views
 from . import admin
 
 urlpatterns = [
-    url(r'teste/$', views.post_list),
+    url(r'jogar/$', views.post_list),
+    url('', views.iniciar),
 ]
