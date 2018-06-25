@@ -16,12 +16,12 @@
    	<br>
    	<div>
    		<tr>
-   			{{ mensagem }}
+   			<h4>{{ mensagem }}</h4>
    		</tr>
 	</div>
 	<br>
 	<form action="iniciar/" method="POST">
 		{% csrf_token %}
-		<input type="submit" name="iniciar/" value="OK">
+		<input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" name="iniciar/" value="Reiniciar">
 	</form>
 {% endblock %}

@@ -1,16 +1,13 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-	<p>Digite a linha e a coluna para realizar a jogada</p>
-	<div>
-   		<tr>
-   			{{ mensagem }}
-   		</tr>
-	</div>
+	<h4>Digite o número da linha e coluna respectivamente.</h4>
+
 	<form action="main" method="POST">
 		{% csrf_token %}
 		{{ entrada.as_p }}
-		<input type="submit" name="jogada" value="OK">
+        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" name="jogada" value="Jogar"/>
+        
 	</form>
 	<div class="box-body">
 	   	<table>
@@ -26,8 +23,10 @@
    	<br>
    	<div>
    		<tr>
-   			{{ mensagem }}
+   			<h5>{{ mensagem }}</h5>
    		</tr>
 	</div>
-	<br>
+    <br>
+    
+ 
 {% endblock %}
