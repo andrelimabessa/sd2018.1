@@ -1,0 +1,21 @@
+<h1>Nova Jogada</h1>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Jogar</button>
+</form>
+
+<div>{{ status }}</div>
+<div>Jogadas restantes: {{ restante }}</div>
+<div class="box-body">
+    <table style="width:50%">
+        <tbody>
+            {% for lin in tabuleiro %}
+                <tr>   
+                {% for i in lin %}
+                    <td>{{ i }}</td>
+                {% endfor %}
+                </tr> 
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
