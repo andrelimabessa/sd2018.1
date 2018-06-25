@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2><p>Tamanho do Tabuleiro para iniciar o jogo</p></h2>
+	<form  action="jogada" method="post">
+        {% csrf_token %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Número de Linhas</th>
+                    <th scope="col">Número de colunas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ entrada.linha }}</td>
+                    <td>{{ entrada.coluna }}</td>
+                </tr>
+            </tbody>
+        </table>
+		<br>
+		<br>
+		<p>
+		<input type="submit" name="iniciar" value="Jogar">
+		</p>
+		<br>
+	</form>
+{% endblock %}

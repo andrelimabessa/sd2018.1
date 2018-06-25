@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	<div class="box-body">
+	   	<table class="table">
+	   		<tbody>
+	   			{% for cel in campo %}
+	   			<tr>
+	   				<td>{{ cel }}</td>
+	   			</tr>
+	   			{% endfor %}
+	   		</tbody>
+	   	</table>
+   	</div>
+   	<br>
+   	<div>
+   		<tr>
+   			{{ mensagem }}
+   		</tr>
+	</div>
+	<br>
+	<form action="iniciar/" method="POST">
+		{% csrf_token %}
+		<input type="submit" name="iniciar/" value="OK">
+	</form>
+{% endblock %}
